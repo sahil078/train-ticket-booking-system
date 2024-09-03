@@ -1,0 +1,150 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.App {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  margin: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Seats Container Styles */
+.seats-container {
+  display: grid;
+  grid-template-columns: repeat(7, 40px);
+  grid-gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.seat {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.seat.available {
+  background-color: #90ee90; /* Light green */
+}
+
+.seat.booked {
+  background-color: #ff6347; /* Tomato */
+}
+
+/* Adjusting the last row alignment */
+.seats-container .seat:nth-last-child(-n+3) {
+  grid-column: span 2;
+  margin-left: 40px; /* Adjust to center the last row seats */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .App {
+    padding: 15px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  label {
+    max-width: 100%;
+  }
+
+  .seats-container {
+    grid-template-columns: repeat(4, 40px);
+    grid-gap: 8px;
+  }
+
+  /* Adjusting the last row alignment for smaller screens */
+  .seats-container .seat:nth-last-child(-n+3) {
+    grid-column: span 1;
+    margin-left: calc(40px * 1.5);
+  }
+}
+
+@media (max-width: 480px) {
+  .seats-container {
+    grid-template-columns: repeat(3, 40px);
+  }
+
+  /* Further adjust last row alignment for very small screens */
+  .seats-container .seat:nth-last-child(-n+3) {
+    grid-column: span 1;
+    margin-left: 40px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+  }
+}
